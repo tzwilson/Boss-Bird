@@ -1,0 +1,198 @@
+package com.iERC.BossBird.Ads;
+
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.RelativeLayout;
+
+import com.revmob.RevMob;
+import com.revmob.RevMobAdsListener;
+import com.revmob.RevMobTestingMode;
+import com.revmob.ads.banner.RevMobBanner;
+
+
+public class AdRequestHandler implements IAdReqHandler {
+	protected Activity activity;
+	RelativeLayout layout;
+//	protected AdView adV;
+	
+	// Revmob Variables
+	private RevMobBanner			banner;
+	private RevMob					revmob;
+	
+	RevMobAdsListener				revmobListener		= new RevMobAdsListener()
+	{
+		@Override
+		public void onRevMobAdReceived ( )
+		{
+			System.out.println("RevMob ad received.");
+
+			// toastOnUiThread("RevMob ad received.");
+		}
+
+		@Override
+		public void onRevMobAdNotReceived (String message)
+		{
+			System.out.println("RevMob ad not received.");
+	
+			// toastOnUiThread("RevMob ad not received.");
+		}
+
+		@Override
+		public void onRevMobAdDismiss ( )
+		{
+			System.out.println("Ad dismissed.");
+			// toastOnUiThread("Ad dismissed.");
+
+		}
+
+		@Override
+		public void onRevMobAdClicked ( )
+		{
+			System.out.println("Ad clicked.");
+			// toastOnUiThread("Ad clicked.");
+		}
+
+		@Override
+		public void onRevMobAdDisplayed ( )
+		{
+			System.out.println("Ad displayed.");
+			// toastOnUiThread("Ad displayed.");
+		}
+
+		@Override
+		public void onRevMobEulaIsShown() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onRevMobEulaWasAcceptedAndDismissed() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onRevMobEulaWasRejected() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onRevMobSessionIsStarted() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onRevMobSessionNotStarted(String arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+
+//	private final String ADMOBCODE = "ca-app-pub-8562185423191009/3100037974";
+
+	//AdRequest adRequest;
+
+	private final int SHOW_ADS = 1;
+	private final int HIDE_ADS = 0;
+
+	private Handler handler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case SHOW_ADS:
+//				adV.setVisibility(View.VISIBLE);
+				banner.setVisibility(View.VISIBLE);
+				break;
+			case HIDE_ADS:
+//				adV.setVisibility(View.GONE);
+				banner.setVisibility(View.VISIBLE);
+				break;
+			}
+		}
+	};
+
+	public AdRequestHandler(Activity activity, RelativeLayout layout) {
+
+		this.activity = activity;
+		this.layout = layout;
+
+	}
+
+	@Override
+	public void showAd(boolean show) {
+		handler.sendEmptyMessage(show ? SHOW_ADS : HIDE_ADS);
+
+	}
+	
+	public void bindRevMobAds ( )
+	{
+		
+			revmob = RevMob.start(activity); // RevMob App ID configured in the AndroidManifest.xml file
+			// revmob.setTimeoutInSeconds(5);
+			banner = revmob.createBanner(activity);
+			banner.setVisibility(View.GONE);
+			
+			//Uncomment this line when you are testing ads.  Keeps from screwing with your eCPM.
+			//revmob.setTestingMode(RevMobTestingMode.WITH_ADS); // with this line, RevMob will always deliver a sample ad
+			
+			RelativeLayout.LayoutParams adParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+			adParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+			adParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+
+			layout.addView(banner, adParams);
+
+	}	
+
+//	public void bindAdMobAds() {
+//
+//		adV = new AdView(activity.getApplicationContext());
+//		adV.setAdSize(AdSize.BANNER);
+//		adV.setAdUnitId(ADMOBCODE);
+//
+//		// Uncomment this and comment out the line below when you are testing.
+//		// This will cause you to get a sample ad
+//		// Replace the TestDevice string with the id that is displayed in your
+//		// LogCat.
+////		 adRequest = new AdRequest.Builder()
+////		 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR) // Emulator My Note 3
+////		 .addTestDevice("FD51A389FD97B034F51A510420A05EBD")
+////		 .build();
+//
+//		adRequest = new AdRequest.Builder().build();
+//
+//		adV.loadAd(adRequest);
+//		
+//		RelativeLayout.LayoutParams adParams = new RelativeLayout.LayoutParams(
+//				RelativeLayout.LayoutParams.WRAP_CONTENT,
+//				RelativeLayout.LayoutParams.WRAP_CONTENT);
+//		adParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//		adParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+//		layout.addView(adV, adParams);
+//	}
+
+	public void onPause() {
+//		if (adV != null)
+//			adV.pause();
+
+	}
+
+	public void onResume() {
+//		if (adV != null)
+//			adV.resume();
+
+	}
+
+	public void onDestroy() {
+//		if (adV != null)
+//			adV.destroy();
+
+	}
+
+	
+	
+
+}

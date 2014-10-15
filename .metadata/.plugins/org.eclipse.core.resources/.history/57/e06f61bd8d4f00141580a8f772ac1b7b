@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity" >
+    
+<!-- Leaderboard Button -->
+<Button
+    android:id="@+id/ldrbrd_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@+drawable/leaderimg"/>
+    
+<!-- Achievements Button -->
+<Button
+    android:id="@+id/achievements_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/ldrbrd_button"
+    android:src="@+drawable/acheiveimg"/>
+
+<!-- Share Button -->
+<com.facebook.widget.LoginButton 
+    android:id="@+id/share_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/achievements_button"/>
+
+<!-- Sign In Button -->
+<Button
+    android:id="@+id/sign_in_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>"
+</RelativeLayout>

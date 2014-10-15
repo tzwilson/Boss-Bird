@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boss Bird</string>
+    <string name="app_id">396936530083</string>
+    <string name="facebook_app_id">550708098393019</string>
+    <string name="achievement_single_star">CgkIo5GL2sYLEAIQAQ</string>
+    <string name="achievement_double_star">CgkIo5GL2sYLEAIQAg</string>
+    <string name="achievement_tripple_star">CgkIo5GL2sYLEAIQAw</string>
+    <string name="achievement_quadruple_star">CgkIo5GL2sYLEAIQBA</string>
+    <string name="achievement_5_stars">CgkIo5GL2sYLEAIQBQ</string>
+    <string name="leaderboard_global_leaderboards">CgkIo5GL2sYLEAIQBg</string>
+    <integer name="google_play_services_version">4452000</integer>
+    <string name="signin">Sign In</string>
+    <string name="ldrbrd_btn">Leaderboards</string>
+    <string name="achieve_btn">Achievements</string>
+    <string name="share_btn">Share</string>
+</resources>
