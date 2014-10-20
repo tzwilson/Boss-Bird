@@ -17,6 +17,7 @@ public class GameWorld {
 	private GameRenderer renderer;
 	public static int score2 = 0;
 	public static int score3 = 0;
+	public static boolean splash = false;
 	
 	private GameState currentState;
 

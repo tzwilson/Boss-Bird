@@ -21,7 +21,7 @@ public class AssetLoader {
 	private static Preferences prefs;
 
 	public static void load() {
-
+		
 		logoTexture = new Texture(Gdx.files.internal("data/logo.png"));
 		logoTexture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 

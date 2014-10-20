@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.bossdevelopment.BossBird2.ZBGame;
@@ -47,7 +49,6 @@ public class MainActivity extends AndroidApplication implements GameHelperListen
 	Button                  share;
 	private final int       ldrBrd = 1;
 	private String          ldrkey = "CgkIo5GL2sYLEAIQCQ";
-
 
 	
 
